@@ -113,11 +113,11 @@ git diff --check
 
 运行 `git diff --stat`、`git diff --check`，并扫描常见 token、私钥、密码和 Cloudflare Account ID 模式；不得输出发现的凭证值。
 
-- [ ] **步骤 2：分开提交基础设施与文章**
+- [x] **步骤 2：分开提交基础设施与文章**
 
 先提交仓库规范、CI、URL 和计划，再单独提交两篇用户文章，避免将内容修改隐藏在部署提交中。
 
-- [ ] **步骤 3：重新运行构建**
+- [x] **步骤 3：重新运行构建**
 
 在最终提交状态运行 `npm run build`，预期退出码为 0。
 
@@ -126,11 +126,11 @@ git diff --check
 **外部资源：**
 - GitHub 仓库：`gagagazan/a-zan-site`
 
-- [ ] **步骤 1：修复 GitHub CLI 授权**
+- [x] **步骤 1：修复 GitHub CLI 授权**
 
 运行 `gh auth status`；若 token 失效，使用 GitHub Web 授权重新登录，再次确认活动账号为 `gagagazan` 且具有 `repo`、`workflow` 权限。
 
-- [ ] **步骤 2：确认仓库名未占用并创建公开仓库**
+- [x] **步骤 2：确认仓库名未占用并创建公开仓库**
 
 运行：
 
@@ -140,7 +140,7 @@ gh repo create gagagazan/a-zan-site --public --source=. --remote=origin
 
 预期：创建空公开仓库并添加 `origin`，不生成额外 README、许可证或 `.gitignore`。
 
-- [ ] **步骤 3：推送 main**
+- [x] **步骤 3：推送 main**
 
 运行：
 
@@ -162,11 +162,11 @@ git push -u origin main
 - 构建命令：`npm run build`
 - 产物目录：`dist`
 
-- [ ] **步骤 1：确认 Pages 项目不存在**
+- [x] **步骤 1：确认 Pages 项目不存在**
 
 读取 Cloudflare Pages 项目列表；若同名项目已存在，先核对 source、build config 和 production branch，只补齐差异。
 
-- [ ] **步骤 2：通过已授权 GitHub 集成创建项目**
+- [x] **步骤 2：通过已授权 GitHub 集成创建项目**
 
 创建 `a-zan-site`，连接 `gagagazan/a-zan-site`，启用生产部署、PR 预览和 PR 评论，设置 Node.js 24 构建环境。
 
