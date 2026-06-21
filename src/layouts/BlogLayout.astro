@@ -1,0 +1,28 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  ogType?: string;
+}
+
+const { title, description, ogType = 'website' } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} ogType={ogType}>
+  <Header variant="blog" />
+  <main class="container blog-main">
+    <slot />
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .blog-main {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+</style>
