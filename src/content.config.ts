@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z, glob } from 'astro:content';
 
 const blog = defineCollection({
   type: 'content_layer',
