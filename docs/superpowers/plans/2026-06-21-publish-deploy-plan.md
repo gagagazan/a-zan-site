@@ -170,6 +170,10 @@ git push -u origin main
 
 创建 `a-zan-site`，连接 `gagagazan/a-zan-site`，启用生产部署、PR 预览和 PR 评论，设置 Node.js 24 构建环境。
 
+- [x] **步骤 2.5：授权 Cloudflare Pages GitHub App 访问新仓库**
+
+在 GitHub `Settings -> Applications -> Installed GitHub Apps` 中为 Cloudflare Pages 添加 `gagagazan/a-zan-site` 仓库访问。
+
 - [ ] **步骤 3：等待首次部署并检查结果**
 
 读取 deployment 状态和阶段日志，预期生产部署成功且 `a-zan-site.pages.dev` 可访问。
