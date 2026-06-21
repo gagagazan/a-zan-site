@@ -1,5 +1,7 @@
 # a-zan-site
 
+[![CI](https://github.com/gagagazan/a-zan-site/actions/workflows/ci.yml/badge.svg)](https://github.com/gagagazan/a-zan-site/actions/workflows/ci.yml)
+
 Zan 的个人主页与博客，基于 Astro 构建并部署在 Cloudflare Pages。
 
 - 主页：<https://a-zan.xyz>

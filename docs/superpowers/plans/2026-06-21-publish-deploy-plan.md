@@ -150,7 +150,7 @@ git push -u origin main
 
 预期：远程 `main` 指向本地 HEAD。
 
-- [ ] **步骤 4：读取 GitHub 状态**
+- [x] **步骤 4：读取 GitHub 状态**
 
 确认仓库 visibility 为 `PUBLIC`、默认分支为 `main`，并等待 CI workflow 成功。
 
