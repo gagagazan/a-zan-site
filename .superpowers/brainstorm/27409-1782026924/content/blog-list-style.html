@@ -1,0 +1,68 @@
+<h2>博客列表页风格选择</h2>
+<p class="subtitle">首页已选：极简文字型。现在选择博客列表页的布局风格。</p>
+
+<div class="cards">
+  <div class="card" data-choice="dense" onclick="toggleSelect(this)">
+    <div class="mockup">
+      <div class="mockup-header">方案 A：紧凑列表型</div>
+      <div class="mockup-body" style="padding:24px;min-height:240px">
+        <div style="font-size:12px;color:#999;margin-bottom:16px">BLOG.A-ZAN.XYZ</div>
+
+        <div style="border-bottom:1px solid #eee;padding:12px 0">
+          <div style="display:flex;justify-content:space-between;font-size:13px;color:#666;margin-bottom:4px">
+            <span>2025-06-15</span>
+            <span>#astro #workflow</span>
+          </div>
+          <div style="font-size:16px;font-weight:500">为什么我选择从零搭建个人主页</div>
+        </div>
+
+        <div style="border-bottom:1px solid #eee;padding:12px 0">
+          <div style="display:flex;justify-content:space-between;font-size:13px;color:#666;margin-bottom:4px">
+            <span>2025-06-10</span>
+            <span>#testing #career</span>
+          </div>
+          <div style="font-size:16px;font-weight:500">测试开发工程师的技术沉淀方式</div>
+        </div>
+
+        <div style="padding:12px 0">
+          <div style="display:flex;justify-content:space-between;font-size:13px;color:#666;margin-bottom:4px">
+            <span>2025-06-01</span>
+            <span>#ai-agent #qa</span>
+          </div>
+          <div style="font-size:16px;font-weight:500">AI Agent 时代，质量保障如何演进</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>紧凑列表型</h3>
+      <p>一行标题 + 日期标签，信息密度高，适合文章较多的长期博客。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="card" onclick="toggleSelect(this)">
+    <div class="mockup">
+      <div class="mockup-header">方案 B：卡片摘要型（推荐）</div>
+      <div class="mockup-body" style="padding:24px;min-height:240px">
+        <div style="font-size:12px;color:#999;margin-bottom:16px">BLOG.A-ZAN.XYZ</div>
+
+        <div style="border:1px solid #e5e5e5;border-radius:8px;padding:16px;margin-bottom:12px">
+          <div style="font-size:13px;color:#666;margin-bottom:6px">2025-06-15 · #astro #workflow</div>
+          <div style="font-size:16px;font-weight:500;margin-bottom:6px">为什么我选择从零搭建个人主页</div>
+          <div style="font-size:13px;color:#555;line-height:1.5">记录从域名注册到 Astro + Cloudflare Pages 的完整决策过程...</div>
+        </div>
+
+        <div style="border:1px solid #e5e5e5;border-radius:8px;padding:16px;margin-bottom:12px">
+          <div style="font-size:13px;color:#666;margin-bottom:6px">2025-06-10 · #testing #career</div>
+          <div style="font-size:16px;font-weight:500;margin-bottom:6px">测试开发工程师的技术沉淀方式</div>
+          <div style="font-size:13px;color:#555;line-height:1.5">测试开发不仅要写用例，更要构建质量体系与工程效率...</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>卡片摘要型</h3>
+      <p>每篇文章以卡片呈现，包含摘要，更适合阅读型技术博客。</p>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:24px">推荐方案 B（卡片摘要型），与首页卡片风格呼应，中文技术博客阅读体验更好。请选择。</p>

@@ -1,0 +1,76 @@
+<h2>首页 Hero 风格选择</h2>
+<p class="subtitle">三种克制、偏工程师风格的个人主页首屏方案。请选择一个作为后续实现基础。</p>
+
+<div class="cards">
+  <div class="card" data-choice="minimal" onclick="toggleSelect(this)">
+    <div class="mockup">
+      <div class="mockup-header">方案 A：极简文字型</div>
+      <div class="mockup-body" style="padding:32px 24px;min-height:220px;display:flex;flex-direction:column;justify-content:center">
+        <div style="font-size:12px;color:#666;margin-bottom:12px">A-ZAN.XYZ</div>
+        <h1 style="font-size:28px;margin:0 0 12px;font-weight:600">Zan</h1>
+        <p style="font-size:15px;line-height:1.7;color:#333;margin:0 0 20px">测试开发工程师，专注质量平台、自动化测试、AI Agent 评测与工程效率工具。</p>
+        <div style="display:flex;gap:12px;font-size:14px">
+          <span style="color:#2563eb">博客 →</span>
+          <span style="color:#2563eb">GitHub →</span>
+          <span style="color:#2563eb">关于我 →</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>极简文字型</h3>
+      <p>大段个人介绍 + 3 个行动链接。信息密度低，强调个人定位。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="structured" onclick="toggleSelect(this)">
+    <div class="mockup">
+      <div class="mockup-header">方案 B：结构化卡片型（推荐）</div>
+      <div class="mockup-body" style="padding:24px;min-height:220px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
+          <div>
+            <h1 style="font-size:24px;margin:0 0 6px">Zan</h1>
+            <p style="font-size:13px;color:#666;margin:0">测试开发 · 质量平台 · AI 评测</p>
+          </div>
+          <div style="font-size:11px;color:#999">a-zan.xyz</div>
+        </div>
+        <p style="font-size:14px;line-height:1.6;color:#333;margin:0 0 16px">4 年测试开发经验，构建质量平台、自动化测试体系与 AI Agent 评测能力。</p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div style="border:1px solid #e5e5e5;border-radius:6px;padding:10px;font-size:12px">📝 技术博客</div>
+          <div style="border:1px solid #e5e5e5;border-radius:6px;padding:10px;font-size:12px">🛠️ 工具作品</div>
+          <div style="border:1px solid #e5e5e5;border-radius:6px;padding:10px;font-size:12px">👤 关于我</div>
+          <div style="border:1px solid #e5e5e5;border-radius:6px;padding:10px;font-size:12px">💬 联系方式</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>结构化卡片型</h3>
+      <p>个人简介 + 四个入口卡片，既是首页也是导航中心。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="terminal" onclick="toggleSelect(this)">
+    <div class="mockup">
+      <div class="mockup-header">方案 C：终端/命令行风格</div>
+      <div class="mockup-body" style="padding:24px;min-height:220px;background:#1a1a1a;color:#f0f0f0;font-family:monospace">
+        <div style="font-size:12px;color:#888;margin-bottom:16px">$ whoami</div>
+        <div style="font-size:15px;line-height:1.7;margin-bottom:20px">
+          <span style="color:#4ade80">zan</span> — 测试开发工程师<br/>
+          专注：质量平台 / 自动化测试 / AI Agent / 工程效率</div>
+        <div style="font-size:12px;color:#888;margin-bottom:8px">$ ls links/</div>
+        <div style="display:flex;gap:16px;font-size:14px">
+          <span style="color:#60a5fa">blog/</span>
+          <span style="color:#60a5fa">github/</span>
+          <span style="color:#60a5fa">about/</span>
+          <span style="color:#60a5fa">contact/</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>终端命令行风格</h3>
+      <p>个性鲜明，但可能不适合所有读者，长期维护略显 gimmick。</p>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:24px">我的推荐是方案 B（结构化卡片型），因为它既清晰展示了个人定位，又提供了明确的导航入口，后续扩展工具/作品区域也最自然。你觉得呢？</p>
