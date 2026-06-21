@@ -38,7 +38,7 @@ function formatDate(date: Date) {
           {tags.map((tag) => (
             <>
               {linkTags ? (
-                <a href={`/tags/${tag}`} class="tag">#{tag}</a>
+                <a href={`/blog/tags/${tag}/`} class="tag">#{tag}</a>
               ) : (
                 <span class="tag">#{tag}</span>
               )}
