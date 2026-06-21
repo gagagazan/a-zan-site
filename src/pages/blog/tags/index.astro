@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
+import TagCloud from '../../../components/TagCloud.astro';
+
+const posts = await getCollection('blog', (entry) => !entry.data.draft);
+---
+
+<BlogLayout title="标签" description="按标签浏览博客文章。">
+  <h1>标签</h1>
+  <TagCloud posts={posts} />
+</BlogLayout>

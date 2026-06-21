@@ -1,0 +1,68 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import PostMeta from '../../components/PostMeta.astro';
+import { SITE } from '../../config';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', (entry) => !entry.data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogType="article"
+>
+  <article class="post-article">
+    <header class="post-header">
+      <h1>{post.data.title}</h1>
+      <PostMeta
+        pubDate={post.data.pubDate}
+        updatedDate={post.data.updatedDate}
+        tags={post.data.tags}
+      />
+    </header>
+
+    <div class="post-content">
+      <Content />
+    </div>
+
+    <footer class="post-footer">
+      <p><a href={`${SITE.blogUrl}/`}>← 返回博客列表</a></p>
+    </footer>
+  </article>
+
+  <!-- 预留 giscus 评论容器 -->
+  <div id="comments" class="comments-container"></div>
+</BlogLayout>
+
+<style>
+  .post-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .post-content {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .post-footer {
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .comments-container {
+    margin-top: var(--space-2xl);
+  }
+</style>

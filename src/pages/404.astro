@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../config';
+---
+
+<BaseLayout title="404 - 页面不存在" description="请求的页面不存在。">
+  <Header variant="blog" />
+  <main class="container not-found">
+    <h1>404</h1>
+    <p>这个页面不存在，或者已经被移动。</p>
+    <p>
+      <a href={SITE.url}>返回主页</a>
+      <span class="sep">·</span>
+      <a href={SITE.blogUrl}>去博客</a>
+    </p>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .not-found {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+  }
+
+  .not-found h1 {
+    font-size: 4rem;
+    margin: 0 0 var(--space-md);
+    color: var(--color-text-muted);
+  }
+
+  .sep {
+    margin: 0 var(--space-sm);
+  }
+</style>

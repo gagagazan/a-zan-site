@@ -1,0 +1,31 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BlogLayout from '../../../layouts/BlogLayout.astro';
+import PostList from '../../../components/PostList.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', (entry) => !entry.data.draft);
+  const tags = new Set(posts.flatMap((post) => post.data.tags));
+
+  return Array.from(tags).map((tag) => ({
+    params: { tag },
+    props: {
+      posts: posts.filter((post) => post.data.tags.includes(tag)),
+      tag,
+    },
+  }));
+}
+
+export interface Props {
+  posts: CollectionEntry<'blog'>[];
+  tag: string;
+}
+
+const { posts, tag } = Astro.props;
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BlogLayout title={`标签：${tag}`} description={`标签 ${tag} 下的文章。`}>
+  <h1>#{tag}</h1>
+  <PostList posts={sortedPosts} />
+</BlogLayout>

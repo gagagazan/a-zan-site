@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import PostList from '../../components/PostList.astro';
+import TagCloud from '../../components/TagCloud.astro';
+import { SITE } from '../../config';
+
+const posts = await getCollection('blog', (entry) => !entry.data.draft);
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BlogLayout title="博客" description={SITE.description}>
+  <h1>技术博客</h1>
+  <p class="blog-intro">
+    记录测试开发、质量平台、AI 评测与工程效率方面的思考和实践。
+  </p>
+
+  <PostList posts={sortedPosts} />
+  <TagCloud posts={sortedPosts} />
+</BlogLayout>
+
+<style>
+  .blog-intro {
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-xl);
+  }
+</style>
