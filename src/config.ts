@@ -4,7 +4,7 @@ export const SITE = {
   description:
     'Zan 的个人主页与技术博客。对技术和工具感兴趣，喜欢用 AI 辅助编程做一些小工具。',
   url: 'https://a-zan.xyz',
-  blogUrl: 'https://blog.a-zan.xyz',
+  blogUrl: 'https://a-zan.xyz/blog',
   author: 'Zan',
   email: 'hi@a-zan.xyz',
   language: 'zh-CN',
