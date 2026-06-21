@@ -174,7 +174,7 @@ git push -u origin main
 
 在 GitHub `Settings -> Applications -> Installed GitHub Apps` 中为 Cloudflare Pages 添加 `gagagazan/a-zan-site` 仓库访问。
 
-- [ ] **步骤 3：等待首次部署并检查结果**
+- [x] **步骤 3：等待首次部署并检查结果**
 
 读取 deployment 状态和阶段日志，预期生产部署成功且 `a-zan-site.pages.dev` 可访问。
 
@@ -185,15 +185,15 @@ git push -u origin main
 - 主域名：`a-zan.xyz`
 - 跳转域名：`www.a-zan.xyz`、`blog.a-zan.xyz`
 
-- [ ] **步骤 1：绑定 Pages 主域名**
+- [x] **步骤 1：绑定 Pages 主域名**
 
 向 Pages 项目添加 `a-zan.xyz`，等待验证状态变为 active；Cloudflare 自动管理其 Pages DNS 目标。
 
-- [ ] **步骤 2：准备跳转域名的代理 DNS**
+- [x] **步骤 2：准备跳转域名的代理 DNS**
 
 将 `www.a-zan.xyz` 的 `8.8.8.8` 占位 A 记录替换为仅用于 Cloudflare 代理的记录，并为 `blog.a-zan.xyz` 创建同类记录。邮件和其他子域记录保持不变。
 
-- [ ] **步骤 3：创建或合并 Redirect Rules**
+- [x] **步骤 3：创建或合并 Redirect Rules**
 
 在 zone 的 `http_request_dynamic_redirect` phase 中增加两条 301：
 
@@ -204,20 +204,20 @@ blog.a-zan.xyz/<path> -> https://a-zan.xyz/blog/<path>
 
 两条规则均保留查询字符串，不覆盖现有无关规则。
 
-- [ ] **步骤 4：验证线上行为**
+- [x] **步骤 4：验证线上行为**
 
 运行 HTTPS 请求，确认主页和博客返回 200，RSS 与 sitemap 返回 200，`www` 和 `blog` 返回 301 且 Location 正确。
 
 ### 任务 7：最终状态核对
 
-- [ ] **步骤 1：检查 Git 和 GitHub**
+- [x] **步骤 1：检查 Git 和 GitHub**
 
 确认本地工作树干净、`origin/main` 与本地 HEAD 一致、CI 成功、仓库公开。
 
-- [ ] **步骤 2：检查 Cloudflare**
+- [x] **步骤 2：检查 Cloudflare**
 
 确认 Pages production deployment 成功、自定义域 active、DNS 仅改变获批的站点记录、跳转规则 active。
 
-- [ ] **步骤 3：记录最终证据**
+- [x] **步骤 3：记录最终证据**
 
 汇总 commit、远程仓库 URL、CI run、Pages deployment、域名 HTTP 状态及任何仍在传播中的证书/DNS 状态。
