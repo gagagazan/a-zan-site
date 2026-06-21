@@ -1,0 +1,76 @@
+---
+import { SITE } from '../config';
+
+export interface Props {
+  pubDate: Date;
+  updatedDate?: Date;
+  tags?: string[];
+  linkTags?: boolean;
+}
+
+const { pubDate, updatedDate, tags = [], linkTags = true } = Astro.props;
+
+function formatDate(date: Date) {
+  return new Intl.DateTimeFormat('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    timeZone: SITE.timezone,
+  }).format(date);
+}
+---
+
+<div class="post-meta">
+  <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+  {
+    updatedDate && (
+      <>
+        <span class="sep">·</span>
+        <span>更新于 <time datetime={updatedDate.toISOString()}>{formatDate(updatedDate)}</time></span>
+      </>
+    )
+  }
+  {
+    tags.length > 0 && (
+      <>
+        <span class="sep">·</span>
+        <span class="tags">
+          {tags.map((tag) => (
+            <>
+              {linkTags ? (
+                <a href={`/tags/${tag}`} class="tag">#{tag}</a>
+              ) : (
+                <span class="tag">#{tag}</span>
+              )}
+            </>
+          ))}
+        </span>
+      </>
+    )
+  }
+</div>
+
+<style>
+  .post-meta {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .sep {
+    margin: 0 var(--space-sm);
+  }
+
+  .tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .tag {
+    color: var(--color-text-secondary);
+  }
+
+  .tag:hover {
+    color: var(--color-accent);
+  }
+</style>

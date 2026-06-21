@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PostMeta from './PostMeta.astro';
+
+export interface Props {
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul class="post-list">
+  {
+    posts.map((post) => (
+      <li class="post-item">
+        <a href={`/blog/${post.id}/`} class="post-title">
+          {post.data.title}
+        </a>
+        <PostMeta
+          pubDate={post.data.pubDate}
+          updatedDate={post.data.updatedDate}
+          tags={post.data.tags}
+        />
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-item {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .post-item:last-child {
+    border-bottom: none;
+  }
+
+  .post-title {
+    display: inline-block;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: var(--space-xs);
+  }
+
+  .post-title:hover {
+    color: var(--color-accent);
+  }
+</style>
