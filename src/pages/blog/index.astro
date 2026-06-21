@@ -10,9 +10,9 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
 ---
 
 <BlogLayout title="博客" description={SITE.description}>
-  <h1>技术博客</h1>
+  <h1>博客</h1>
   <p class="blog-intro">
-    记录测试开发、质量平台、AI 评测与工程效率方面的思考和实践。
+    记录技术、工具、职业发展和生活杂记。
   </p>
 
   <PostList posts={sortedPosts} />
