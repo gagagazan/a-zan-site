@@ -2,19 +2,18 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../config';
 
-const techDirections = [
-  '测试开发',
-  '质量平台',
-  '自动化测试',
-  'AI Agent',
-  'AI 评测',
-  '工程效率',
+const interests = [
+  '写代码',
+  '做小工具',
+  'AI 辅助编程',
+  '自动化',
+  'ACG',
+  '摄影',
 ];
 
 const links = [
   { label: '技术博客', href: SITE.blogUrl },
   { label: '工具作品', href: '#tools' },
-  { label: '关于我', href: '#about' },
   { label: 'GitHub', href: SITE.github },
 ];
 ---
@@ -25,13 +24,13 @@ const links = [
       <div class="site-label">A-ZAN.XYZ</div>
       <h1 class="site-name">{SITE.author}</h1>
       <p class="site-intro">
-        测试开发工程师。4 年经验，专注质量平台、自动化测试、AI Agent 评测与工程效率工具。我相信好的质量体系是产品速度的一部分。
+        一个喜欢写代码、折腾小工具的人。最近在实践用 AI 辅助编程做一些练手项目。工作之外喜欢 ACG 和摄影。
       </p>
 
-      <section class="home-section" aria-labelledby="directions-title">
-        <h2 id="directions-title" class="section-title">技术方向</h2>
+      <section class="home-section" aria-labelledby="interests-title">
+        <h2 id="interests-title" class="section-title">兴趣 / 方向</h2>
         <ul class="direction-list">
-          {techDirections.map((d) => <li>{d}</li>)}
+          {interests.map((d) => <li>{d}</li>)}
         </ul>
       </section>
 
@@ -51,13 +50,21 @@ const links = [
       <section class="home-section" id="about" aria-labelledby="about-title">
         <h2 id="about-title" class="section-title">关于我</h2>
         <p>
-          目前主要做测试开发与质量工程相关的工作，关注 AI 时代下质量保障体系的演进。这个站点是我的技术沉淀入口，也是未来作品和工具的展示窗口。
+          我是一名程序员，对技术和工具本身都有热情。这个站点用来记录学习过程、分享练手项目，也是我的个人作品和兴趣的聚合入口。
         </p>
       </section>
 
       <section class="home-section" id="tools" aria-labelledby="tools-title">
         <h2 id="tools-title" class="section-title">工具 / 作品</h2>
         <p class="text-secondary">陆续整理中，敬请期待。</p>
+      </section>
+
+      <section class="home-section" id="photos" aria-labelledby="photos-title">
+        <h2 id="photos-title" class="section-title">摄影</h2>
+        <p>
+          平时会拍一些照片，主要记录生活和旅行。未来可能会在这里放几组精选，完整作品会同步到摄影社区。
+        </p>
+        <p class="text-secondary">精选作品整理中。</p>
       </section>
 
       <section class="home-section" aria-labelledby="contact-title">

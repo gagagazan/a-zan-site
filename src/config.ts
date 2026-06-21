@@ -1,13 +1,13 @@
 export const SITE = {
   title: 'Zan',
-  subtitle: '测试开发工程师',
+  subtitle: '程序员 / 工具制造者',
   description:
-    'Zan 的个人主页与技术博客。专注质量平台、自动化测试、AI Agent 评测与工程效率工具。',
+    'Zan 的个人主页与技术博客。喜欢写代码、折腾小工具和探索 AI 辅助编程。',
   url: 'https://a-zan.xyz',
   blogUrl: 'https://blog.a-zan.xyz',
   author: 'Zan',
   email: 'hi@a-zan.xyz',
   language: 'zh-CN',
-  github: 'https://github.com/zan',
+  github: 'https://github.com/gagagazan',
   timezone: 'Asia/Shanghai',
 } as const;
