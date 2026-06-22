@@ -15,6 +15,23 @@ const links = [
   { label: '工具作品', href: '#tools' },
   { label: 'GitHub', href: SITE.github },
 ];
+
+const tools = [
+  {
+    name: 'PJSK 大门升级材料管理器',
+    description:
+      '用于管理《Project Sekai》五团大门升级材料，支持进度记录以及 JSON 导入、导出。',
+    href: 'https://pjsk-gate-level.a-zan.xyz/',
+    github: 'https://github.com/gagagazan/pjsk_gate_level_materials',
+  },
+  {
+    name: 'Job Kanban',
+    description:
+      'Local-first 的求职 AI 看板，用于跟进岗位机会，整理各阶段的判断、素材和 AI 对话。',
+    href: 'https://job-kanban.a-zan.xyz/',
+    github: 'https://github.com/gagagazan/job_kanban',
+  },
+];
 ---
 
 <BaseLayout title={SITE.title} description={SITE.description}>
@@ -48,7 +65,18 @@ const links = [
 
       <section class="home-section" id="tools" aria-labelledby="tools-title">
         <h2 id="tools-title" class="section-title">工具 / 作品</h2>
-        <p class="text-secondary">陆续整理中，敬请期待。</p>
+        <ul class="tool-list">
+          {tools.map((tool) => (
+            <li class="tool-item">
+              <h3 class="tool-name">{tool.name}</h3>
+              <p class="tool-description">{tool.description}</p>
+              <div class="tool-links">
+                <a href={tool.href} target="_blank" rel="noopener noreferrer">打开工具 →</a>
+                <a href={tool.github} target="_blank" rel="noopener noreferrer">GitHub →</a>
+              </div>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section class="home-section" id="photos" aria-labelledby="photos-title">
@@ -107,10 +135,9 @@ const links = [
   }
 
   .section-title {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-size: 1.25rem;
+    color: var(--color-text);
+    letter-spacing: 0;
     margin: 0 0 var(--space-md);
   }
 
@@ -138,5 +165,41 @@ const links = [
     flex-wrap: wrap;
     gap: var(--space-lg);
     font-size: 1.0625rem;
+  }
+
+  .tool-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .tool-item {
+    margin: 0;
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .tool-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .tool-name {
+    font-size: 1rem;
+    margin: 0 0 var(--space-xs);
+  }
+
+  .tool-description {
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-sm);
+  }
+
+  .tool-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    font-size: 0.9375rem;
   }
 </style>

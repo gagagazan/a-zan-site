@@ -136,7 +136,7 @@ function defineFooter() {
     }
 
     _render() {
-      const defaultText = `一个 Zan 用爱发电的小工具`;
+      const defaultText = ` Zan 用爱发电的小工具`;
       const text = this.getAttribute('text') || defaultText;
       const homeUrl = this.getAttribute('home-url') || 'https://a-zan.xyz';
       const linkText = this.getAttribute('link-text') || `回到 a-zan.xyz`;
