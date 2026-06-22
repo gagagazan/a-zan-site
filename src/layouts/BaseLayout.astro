@@ -42,7 +42,6 @@ const fullTitle = title === SITE.title ? title : `${title} · ${SITE.title}`;
     {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <link rel="alternate" type="application/rss+xml" title={`${SITE.title} 博客`} href={`${SITE.url}/rss.xml`} />
-    <script defer src={`${SITE.url}/site-footer.js`} charset="utf-8"></script>
   </head>
   <body>
     <slot />
