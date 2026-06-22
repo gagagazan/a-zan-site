@@ -75,8 +75,6 @@ draft: false
 
 > 仓库是公开的，因此已提交文章即使标记为 `draft: true`，Markdown 源码仍然公开。
 
-## 项目结构
-
-详见 `docs/superpowers/specs/2026-06-21-personal-site-design.md`。
+## 开发约定
 
 项目开发约定见 `AGENTS.md`。
