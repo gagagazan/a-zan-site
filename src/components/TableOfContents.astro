@@ -1,0 +1,197 @@
+---
+export interface Props {
+  headings: { slug: string; text: string; depth: number }[];
+}
+
+const { headings } = Astro.props;
+const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+{
+  tocHeadings.length >= 2 && (
+    <nav class="toc" aria-label="文章大纲">
+      <ol class="toc-list">
+        {tocHeadings.map((h) => (
+          <li class={`toc-item toc-level-${h.depth}`}>
+            <a href={`#${h.slug}`} class="toc-link" data-slug={h.slug}>
+              <span class="toc-marker" aria-hidden="true" />
+              <span class="toc-text">{h.text}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )
+}
+
+<script>
+  (() => {
+    const nav = document.querySelector('.toc') as HTMLElement | null;
+    if (!nav) return;
+
+    const links = Array.from(nav.querySelectorAll('.toc-link')) as HTMLAnchorElement[];
+    if (links.length === 0) return;
+
+    let isJumping = false;
+
+    const setActive = (activeLink: HTMLAnchorElement) => {
+      links.forEach((l) => l.classList.toggle('is-active', l === activeLink));
+    };
+
+    const headings = links
+      .map((link) => {
+        const slug = link.getAttribute('data-slug');
+        return slug ? document.getElementById(slug) : null;
+      })
+      .filter((el): el is HTMLElement => el !== null);
+
+    const updateActiveFromScroll = () => {
+      if (isJumping || headings.length === 0) return;
+
+      const scrollPos = window.scrollY + window.innerHeight * 0.25;
+      let activeIndex = 0;
+
+      for (let i = 0; i < headings.length; i++) {
+        if (headings[i].offsetTop <= scrollPos) {
+          activeIndex = i;
+        } else {
+          break;
+        }
+      }
+
+      setActive(links[activeIndex]);
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveFromScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', updateActiveFromScroll);
+
+    links.forEach((link) => {
+      const slug = link.getAttribute('data-slug');
+      if (!slug) return;
+      const target = document.getElementById(slug);
+      if (!target) return;
+
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        setActive(link);
+        isJumping = true;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', `#${slug}`);
+        window.setTimeout(() => {
+          isJumping = false;
+        }, 800);
+      });
+    });
+
+    updateActiveFromScroll();
+  })();
+</script>
+
+<style>
+  .toc {
+    --toc-width: 200px;
+    --toc-gap: 16px;
+    --toc-text-max-width: 140px;
+    --toc-marker-width: 12px;
+    --toc-marker-active-width: 18px;
+
+    position: fixed;
+    top: 50%;
+    right: calc((100vw - var(--max-width)) / 2 - var(--toc-width) - var(--toc-gap));
+    z-index: 100;
+    transform: translateY(-50%);
+    width: var(--toc-width);
+    max-height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+  }
+
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: var(--space-md) 0;
+  }
+
+  .toc-item {
+    margin: 0;
+  }
+
+  .toc-link {
+    display: flex;
+    align-items: center;
+    padding: var(--space-xs) var(--space-md);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .toc-marker {
+    flex-shrink: 0;
+    width: var(--toc-marker-width);
+    height: 2px;
+    margin-right: var(--space-sm);
+    background: var(--color-border);
+    border-radius: 1px;
+    transition: width 0.2s ease, background-color 0.2s ease;
+  }
+
+  .toc-text {
+    flex-shrink: 0;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--color-text-secondary);
+    transition: max-width 0.25s ease, opacity 0.2s ease, color 0.2s ease;
+  }
+
+  .toc:hover .toc-text,
+  .toc-link.is-active .toc-text {
+    max-width: var(--toc-text-max-width);
+    opacity: 1;
+  }
+
+  .toc-link.is-active .toc-text {
+    color: var(--color-accent);
+  }
+
+  .toc-link.is-active .toc-marker {
+    width: var(--toc-marker-active-width);
+    background: var(--color-accent);
+  }
+
+  .toc-link:hover .toc-text,
+  .toc-link:focus .toc-text {
+    color: var(--color-accent);
+  }
+
+  .toc-link:hover .toc-marker,
+  .toc-link:focus .toc-marker {
+    background: var(--color-accent);
+  }
+
+  .toc-level-3 .toc-link {
+    padding-left: var(--space-lg);
+  }
+
+  @media (max-width: 1159px) {
+    .toc {
+      display: none;
+    }
+  }
+</style>

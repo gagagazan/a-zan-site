@@ -1,0 +1,127 @@
+---
+export interface Props {
+  headings: { slug: string; text: string; depth: number }[];
+}
+
+const { headings } = Astro.props;
+const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+{
+  tocHeadings.length >= 2 && (
+    <details class="mobile-toc" open>
+      <summary class="mobile-toc-summary">
+        <span class="mobile-toc-title">文章大纲</span>
+        <svg class="mobile-toc-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </summary>
+      <ol class="mobile-toc-list">
+        {tocHeadings.map((h) => (
+          <li class={`mobile-toc-item mobile-toc-level-${h.depth}`}>
+            <a href={`#${h.slug}`} class="mobile-toc-link" data-slug={h.slug}>
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </details>
+  )
+}
+
+<script>
+  (() => {
+    const toc = document.querySelector('.mobile-toc') as HTMLDetailsElement | null;
+    if (!toc) return;
+
+    const links = Array.from(toc.querySelectorAll('.mobile-toc-link')) as HTMLAnchorElement[];
+
+    links.forEach((link) => {
+      const slug = link.getAttribute('data-slug');
+      if (!slug) return;
+      const target = document.getElementById(slug);
+      if (!target) return;
+
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', `#${slug}`);
+      });
+    });
+  })();
+</script>
+
+<style>
+  .mobile-toc {
+    display: block;
+    margin: 0 0 var(--space-lg);
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+  }
+
+  .mobile-toc-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .mobile-toc-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-toc-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .mobile-toc-chevron {
+    flex-shrink: 0;
+    color: var(--color-text-secondary);
+    transition: transform 0.2s ease;
+  }
+
+  .mobile-toc[open] .mobile-toc-chevron {
+    transform: rotate(180deg);
+  }
+
+  .mobile-toc-list {
+    list-style: none;
+    margin: var(--space-sm) 0 0;
+    padding: var(--space-sm) 0 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .mobile-toc-item {
+    margin: 0;
+  }
+
+  .mobile-toc-link {
+    display: block;
+    padding: var(--space-xs) 0;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+
+  .mobile-toc-link:hover,
+  .mobile-toc-link:focus {
+    color: var(--color-accent);
+  }
+
+  .mobile-toc-level-3 .mobile-toc-link {
+    padding-left: var(--space-md);
+    font-size: 0.85rem;
+  }
+
+  @media (min-width: 1160px) {
+    .mobile-toc {
+      display: none;
+    }
+  }
+</style>
