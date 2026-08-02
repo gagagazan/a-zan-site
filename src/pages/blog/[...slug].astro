@@ -4,7 +4,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
 import PostMeta from '../../components/PostMeta.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import MobileTableOfContents from '../../components/MobileTableOfContents.astro';
-import { SITE } from '../../config';
+import BackToTop from '../../components/BackToTop.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', (entry) => !entry.data.draft);
@@ -44,12 +44,13 @@ const { Content, headings } = await render(post);
     </div>
 
     <footer class="post-footer">
-      <p><a href={`${SITE.blogUrl}/`}>← 返回博客列表</a></p>
+      <p><a href="/blog/">← 返回博客列表</a></p>
     </footer>
   </article>
 
   <!-- 预留 giscus 评论容器 -->
   <div id="comments" class="comments-container"></div>
+  <BackToTop />
 </BlogLayout>
 
 <script>

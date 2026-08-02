@@ -11,12 +11,12 @@ const isBlog = variant === 'blog';
 
 <header class="site-header">
   <nav class="container header-inner">
-    <a href={isBlog ? SITE.blogUrl : SITE.url} class="site-brand">
+    <a href={isBlog ? '/blog/' : '/'} class="site-brand">
       {isBlog ? 'blog.a-zan.xyz' : 'a-zan.xyz'}
     </a>
     <div class="nav-links">
-      <a href={SITE.url}>主页</a>
-      <a href={SITE.blogUrl}>博客</a>
+      <a href="/">主页</a>
+      <a href="/blog/">博客</a>
       <a href={SITE.github} target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </nav>
