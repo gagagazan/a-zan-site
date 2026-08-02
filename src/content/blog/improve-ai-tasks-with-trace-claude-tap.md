@@ -88,6 +88,6 @@ claude-tap 有导出功能，HTML 格式适合人看，JSONL 等格式适合与 
 
 ![claude-tap 的 JSONL、压缩文件、日志和 HTML 导出选项](/images/blog/claude-tap-trace/export-options.png)
 
-> trace 里可能包含 prompt、工具调用、文件路径，甚至业务上下文。导出或分享之前，记得先做一遍脱敏检查。
+trace 里可能包含 prompt、工具调用、文件路径，甚至业务上下文。导出或分享之前，记得先做一遍脱敏检查。
 
-dev-workflow、QA-workflow 等都在收集使用反馈。trace 胜千言，善用导出能力，把现场给到相关同学，对排查问题和提升效果会有很大帮助！
+trace 胜千言，善用导出能力，把现场给到相关同学，对排查问题和提升效果会有很大帮助！
