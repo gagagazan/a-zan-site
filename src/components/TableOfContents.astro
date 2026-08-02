@@ -34,8 +34,33 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
 
     let isJumping = false;
 
+    const updateTruncatedTitles = () => {
+      links.forEach((link) => {
+        const text = link.querySelector('.toc-text') as HTMLElement | null;
+        const marker = link.querySelector('.toc-marker') as HTMLElement | null;
+        if (!text || !marker) return;
+
+        const linkStyle = window.getComputedStyle(link);
+        const markerStyle = window.getComputedStyle(marker);
+        const availableWidth =
+          link.clientWidth -
+          Number.parseFloat(linkStyle.paddingLeft) -
+          Number.parseFloat(linkStyle.paddingRight) -
+          marker.offsetWidth -
+          Number.parseFloat(markerStyle.marginRight);
+        const fullText = text.textContent?.trim() ?? '';
+
+        if (text.scrollWidth > availableWidth + 1) {
+          link.title = fullText;
+        } else {
+          link.removeAttribute('title');
+        }
+      });
+    };
+
     const setActive = (activeLink: HTMLAnchorElement) => {
       links.forEach((l) => l.classList.toggle('is-active', l === activeLink));
+      updateTruncatedTitles();
     };
 
     const headings = links
@@ -74,7 +99,10 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', updateActiveFromScroll);
+    window.addEventListener('resize', () => {
+      updateActiveFromScroll();
+      updateTruncatedTitles();
+    });
 
     links.forEach((link) => {
       const slug = link.getAttribute('data-slug');
@@ -100,9 +128,13 @@ const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
 
 <style>
   .toc {
-    --toc-width: 200px;
     --toc-gap: 16px;
-    --toc-text-max-width: 140px;
+    --toc-width: clamp(
+      200px,
+      calc((100vw - var(--max-width)) / 2 - var(--toc-gap)),
+      260px
+    );
+    --toc-text-max-width: calc(var(--toc-width) - 60px);
     --toc-marker-width: 12px;
     --toc-marker-active-width: 18px;
 
