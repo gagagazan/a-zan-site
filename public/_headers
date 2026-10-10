@@ -5,3 +5,6 @@
 /downloads/bangdream-song-names.txt
   Content-Type: text/plain; charset=utf-8
   Content-Disposition: attachment; filename="bangdream-song-names.txt"
+
+/fonts/song-catalog/*.woff2
+  Cache-Control: public, max-age=31536000, immutable

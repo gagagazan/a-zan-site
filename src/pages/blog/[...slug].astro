@@ -5,6 +5,7 @@ import PostMeta from '../../components/PostMeta.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import MobileTableOfContents from '../../components/MobileTableOfContents.astro';
 import BackToTop from '../../components/BackToTop.astro';
+import songCatalogFonts from '../../styles/song-catalog-fonts.css?url';
 
 export async function getStaticPaths() {
   const posts = await getCollection(
@@ -23,6 +24,7 @@ export interface Props {
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
+const isSongCatalog = post.id === 'bangdream-cover-song-list';
 ---
 
 <BlogLayout
@@ -30,6 +32,7 @@ const { Content, headings } = await render(post);
   description={post.data.description}
   ogType="article"
 >
+  {isSongCatalog && <link rel="stylesheet" href={songCatalogFonts} />}
   <TableOfContents headings={headings} />
   <article class="post-article">
     <MobileTableOfContents headings={headings} />
@@ -42,7 +45,7 @@ const { Content, headings } = await render(post);
       />
     </header>
 
-    <div class="post-content">
+    <div class:list={['post-content', { 'song-catalog-content': isSongCatalog }]}>
       <Content />
     </div>
 
@@ -146,7 +149,7 @@ const { Content, headings } = await render(post);
 
   .post-content :global(img) {
     display: block;
-    width: auto;
+    /* Keep Astro's width/height attributes so lazy images reserve space. */
     max-width: 92%;
     margin: var(--space-xl) auto;
     border: 1px solid var(--color-border);
@@ -202,6 +205,16 @@ const { Content, headings } = await render(post);
 </style>
 
 <style is:global>
+  .song-catalog-content {
+    font-family: 'Catalog Sans SC', 'Noto Sans SC', 'PingFang SC',
+      'Microsoft YaHei', sans-serif;
+  }
+
+  .song-catalog-content :lang(ja) {
+    font-family: 'Catalog Sans JP', 'Noto Sans JP', 'Hiragino Sans',
+      'Yu Gothic', 'Meiryo', sans-serif;
+  }
+
   .post-content .song-table-scroll {
     max-width: 100%;
     overflow-x: auto;
@@ -219,8 +232,8 @@ const { Content, headings } = await render(post);
     width: 100%;
     min-width: 90rem;
     border-collapse: collapse;
-    font-size: 0.875rem;
-    line-height: 1.5;
+    font-size: 0.9375rem;
+    line-height: 1.6;
   }
 
   .post-content .song-table-scroll th,
@@ -234,6 +247,13 @@ const { Content, headings } = await render(post);
   .post-content .song-table-scroll th {
     background-color: var(--color-surface);
     white-space: nowrap;
+  }
+
+  .post-content .song-table-scroll td:first-child,
+  .post-content .song-table-scroll td:nth-child(2),
+  .post-content .song-table-scroll td:nth-child(4),
+  .post-content .song-table-scroll td:nth-child(8) {
+    font-variant-numeric: tabular-nums;
   }
 
   .post-content .song-table-scroll td:nth-child(2),

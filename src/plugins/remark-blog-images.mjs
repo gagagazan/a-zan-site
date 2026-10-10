@@ -9,7 +9,7 @@ export default function remarkBlogImages() {
         node.data ??= {};
         node.data.hProperties = {
           ...node.data.hProperties,
-          sizes: '(min-width: 720px) 672px, calc(100vw - 32px)',
+          sizes: '(max-width: 639px) calc(96vw - 30.72px), (max-width: 719px) calc(92vw - 44.16px), 618px',
           quality: node.url.endsWith('.png') ? 90 : 80,
           loading: firstImage ? 'eager' : 'lazy',
           decoding: 'async',

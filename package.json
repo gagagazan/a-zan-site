@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "npm run fonts:check && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
+    "fonts:generate": "node scripts/song-fonts.mjs",
+    "fonts:check": "node scripts/song-fonts.mjs --check",
     "test": "vitest run",
     "test:watch": "vitest"
   },
