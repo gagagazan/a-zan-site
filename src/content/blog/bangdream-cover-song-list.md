@@ -3,7 +3,7 @@ title: "邦邦翻唱曲目目录：335 首歌名、出处与 QQ 音乐链接"
 description: "按原视频顺序整理的 BanG Dream! 翻唱曲目表，包含原唱、出处与 QQ 音乐链接。"
 pubDate: 2026-10-10
 tags: ["BanG Dream!", "音乐"]
-draft: true
+draft: false
 ---
 
 这份目录按 [B 站原视频《一口气看完邦邦翻唱歌曲全335首及出处》](https://www.bilibili.com/video/BV1ShjqzyEH7/) 的出现顺序整理，方便查歌、查看出处，并通过 QQ 音乐链接收听原唱与 BanG Dream! 翻唱版本。视频时长 05:56:29，共 335 条曲目条目，包含番外及重复／组合版本。

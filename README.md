@@ -75,6 +75,20 @@ draft: false
 
 > 仓库是公开的，因此已提交文章即使标记为 `draft: true`，Markdown 源码仍然公开。
 
+## 文章图片
+
+正文图片放在 `src/assets/images/blog/<文章名>/`，在 Markdown 中使用相对路径：
+
+```markdown
+![图片说明](../../assets/images/blog/<文章名>/photo.jpg)
+```
+
+构建时自动生成 WebP、响应式尺寸和宽高属性。第一张图片立即加载，其余懒加载；PNG 截图使用较高质量以保持文字清晰。图片尺寸提示按博客正文宽度设置，相关规则见 `src/plugins/remark-blog-images.mjs`。
+
+需要图片说明时，可以保留 `<figure>` 和 `<figcaption>`，在其中使用 Markdown 图片语法，并在图片前后留空行。普通 HTML `<img>` 不参与优化。
+
+`public/images/` 中的旧图片保留用于兼容已有地址；新文章优先使用 `src/assets/`。
+
 ## 开发约定
 
 项目开发约定见 `AGENTS.md`。

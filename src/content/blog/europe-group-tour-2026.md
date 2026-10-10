@@ -15,8 +15,10 @@ draft: false
 从朋友圈点进来的朋友，我这次拍到了一些自己喜欢的照片，不知道有没有让大家也想去欧洲玩。如果有，可以看看下面的经历和吐槽，再考虑要不要去，哈哈。
 
 <figure>
-  <img src="/images/blog/europe-group-tour-2026/paris-eiffel-tower.jpg" alt="巴黎，随处可见的热吻的情侣。" />
-  <figcaption>巴黎，随处可见的热吻的情侣。</figcaption>
+
+![巴黎，随处可见的热吻的情侣。](../../assets/images/blog/europe-group-tour-2026/paris-eiffel-tower.jpg)
+
+<figcaption>巴黎，随处可见的热吻的情侣。</figcaption>
 </figure>
 
 ## 风景和意外之喜
@@ -24,8 +26,10 @@ draft: false
 瑞士这段是我一路下来最喜欢的，尤其是因特拉肯和迈林根。很安静，很有我想象中那种“欧洲”的感觉，游客和当地人的素质也高。伯尔尼和卢塞恩同样让我喜欢，城市整洁，秩序也好。
 
 <figure>
-  <img src="/images/blog/europe-group-tour-2026/lucerne-waterfront.jpg" alt="卢塞恩，水边的城市和游船。" />
-  <figcaption>卢塞恩，水边的城市和游船。</figcaption>
+
+![卢塞恩，水边的城市和游船。](../../assets/images/blog/europe-group-tour-2026/lucerne-waterfront.jpg)
+
+<figcaption>卢塞恩，水边的城市和游船。</figcaption>
 </figure>
 
 瑞士的自然景色也很惊人，像是到了油画里的世界。除了物价高一点，待着都挺舒服。
@@ -39,8 +43,10 @@ draft: false
 法国的卢浮宫，还有意大利的佛罗伦萨和罗马，跟着讲解逛下来，又简单复习了一遍欧洲的历史和人文。这几段游览拍到的照片我也很满意。
 
 <figure>
-  <img src="/images/blog/europe-group-tour-2026/st-peters-basilica.jpg" alt="圣彼得大教堂，建筑细节。" />
-  <figcaption>圣彼得大教堂，建筑细节。</figcaption>
+
+![圣彼得大教堂，建筑细节。](../../assets/images/blog/europe-group-tour-2026/st-peters-basilica.jpg)
+
+<figcaption>圣彼得大教堂，建筑细节。</figcaption>
 </figure>
 
 这趟还有两次很巧的偶遇。
@@ -58,8 +64,10 @@ draft: false
 司机会英语，我用蹩脚的英语跟着聊，停车场看守人却只会意大利语。一个匈牙利人、一个中国人、一个意大利人，就这么凑在一起研究停车的事，倒也蛮有意思的。
 
 <figure>
-  <img src="/images/blog/europe-group-tour-2026/venice-gondolier.jpg" alt="威尼斯，贡多拉船摇橹人。" />
-  <figcaption>威尼斯，贡多拉船摇橹人。</figcaption>
+
+![威尼斯，贡多拉船摇橹人。](../../assets/images/blog/europe-group-tour-2026/venice-gondolier.jpg)
+
+<figcaption>威尼斯，贡多拉船摇橹人。</figcaption>
 </figure>
 
 以前听人说南欧人比较热情。在意大利点餐时，我搞错了收银的位置，旁边四五个本地人突然一起给我指应该在哪里付钱。一下子这么多人帮忙，还挺热情的。
@@ -97,8 +105,10 @@ draft: false
 | 匈牙利语 | [köszönöm szépen](https://en.wiktionary.org/wiki/k%C3%B6sz%C3%B6n%C3%B6m_sz%C3%A9pen) | 非常感谢 | [ˈkøsønøm seːpɛn] | 科瑟讷姆·塞潘 |
 
 <figure>
-  <img src="/images/blog/europe-group-tour-2026/lucerne-reflections.jpg" alt="卢塞恩，油画般的建筑倒影。" />
-  <figcaption>卢塞恩，油画般的建筑倒影。</figcaption>
+
+![卢塞恩，油画般的建筑倒影。](../../assets/images/blog/europe-group-tour-2026/lucerne-reflections.jpg)
+
+<figcaption>卢塞恩，油画般的建筑倒影。</figcaption>
 </figure>
 
 ## 同行的团友
@@ -176,8 +186,10 @@ ta们会要求去某些地方拍照，安排不了，就想办法脱团自己去
 在威尼斯街头，我还拍到了一张防扒手提示牌。上面直接画着一个人伸手掏另一个人的包，下面写着“BEWARE OF THE PICKPOCKETS”，也就是“小心扒手”。画得非常直白，连语言障碍都替你省了。
 
 <figure>
-  <img src="/images/blog/europe-group-tour-2026/venice-pickpocket-warning.jpg" alt="威尼斯，街头的防扒手提示牌。" />
-  <figcaption>威尼斯，街头的防扒手提示牌。</figcaption>
+
+![威尼斯，街头的防扒手提示牌。](../../assets/images/blog/europe-group-tour-2026/venice-pickpocket-warning.jpg)
+
+<figcaption>威尼斯，街头的防扒手提示牌。</figcaption>
 </figure>
 
 欧洲本身也有不少槽点。卢浮宫外墙的尿骚味、塞纳河畔流浪汉的定居点，还有一路反复被提醒的偷盗和抢夺，都在那些漂亮照片之外。公共厕所经常收费，上个厕所还得惦记零钱。再加上国内早就习惯的移动支付、网购、外卖这些便利，到了这边才发现，想随时随地掏个手机就把事情办了，还真没那么容易。出门前觉得这些服务理所当然，出来一趟才知道自己有多依赖它们。
